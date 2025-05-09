@@ -13,7 +13,7 @@ dotenv.config();
 export const register = async (req, res) => {
   try {
     const { email, password } = req.body;
-    console.log(email)
+
    
    
 

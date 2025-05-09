@@ -3,11 +3,14 @@ import  User from "../model/user.model.js"
 
 export const createproject = async (req, res) => {
   try {
-    const { project_name } = req.body;
+    const { project_name, status, category, description, tag } = req.body;
 
     const project = new Project({
       project_name,
-     
+      status,
+      category,
+      description,
+      // createdBy: req.User.userId,
     });
     await project.save();
 
