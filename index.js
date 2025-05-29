@@ -2,17 +2,19 @@ import express from "express";
 import dotenv from "dotenv";
 import connectDb from "./config/db.js";
 import userRoutes from "./routes/User.route.js"; 
-import router from "./routes/project.routes.js"; 
+import router from "./routes/Product.routes.js"; 
 
 dotenv.config();
 connectDb();
-
 const app = express();
+
+
+
 app.use(express.json());
 
 
 app.use("/api/auth", userRoutes); 
-app.use("/api/project", router); 
+app.use("/api/product", router); 
 
 const PORT = process.env.PORT || 3000;
 

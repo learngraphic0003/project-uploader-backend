@@ -1,7 +1,7 @@
 import jwt from "jsonwebtoken";
 
 const auth = (req, res, next) => {
-//   const token = req.header("Authorization");
+
   const token = req.header("Authorization");
 
   if (!token) return res.status(401).json({ message: "Access Denied" });
@@ -16,3 +16,11 @@ const auth = (req, res, next) => {
 };
 
 export default auth;
+
+
+export const authorizeAdmin = (req, res, next) => {
+  if (req.user.role !== "admin") {
+    return res.status(403).json({ message: "Access denied. Admins only." });
+  }
+  next();
+};
